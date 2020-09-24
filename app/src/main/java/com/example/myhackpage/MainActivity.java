@@ -21,16 +21,25 @@ import androidx.appcompat.app.AppCompatActivity;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
+
+import static java.lang.Long.parseLong;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button click;
+    Button seventh;
+    Button eighth;
+    Button ninth;
+    int dayOfWeek;
     public static TextView name;
     public static TextView description;
     public static TextView locations;
+    public static TextView header;
     public ListView listView;
     public ListAdapter adapter;
     private static String url = "https://api.hackillinois.org/event/";
@@ -40,29 +49,37 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        new JSONParse().execute();
 
+        dayOfWeek = 5;
         eventList = new ArrayList<HashMap<String, String>>();
-//        click = (Button) findViewById(R.id.button);
-//
-//        click.setOnClickListener(new View.OnClickListener() {
+        seventh = (Button) findViewById(R.id.seventh);
+        seventh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+//        saturday = (Button) findViewById(R.id.saturday);
+//        saturday.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
+//                dayOfWeek = 7;
 //                new JSONParse().execute();
 //            }
 //        });
 
-        new JSONParse().execute();
+//        sunday = (Button) findViewById(R.id.sunday);
+//        sunday.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                dayOfWeek = 1;
+//                new JSONParse().execute();
+//            }
+//        });
 
         listView = (ListView) findViewById(R.id.list);
-//        BottomNavigationView navView = findViewById(R.id.nav_view);
-//        // Passing each menu ID as a set of Ids because each
-//        // menu should be considered as top level destinations.
-//        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-//                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
-//                .build();
-//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-//        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-//        NavigationUI.setupWithNavController(navView, navController);
     }
 
     private class JSONParse extends AsyncTask<String, String, JSONObject> {
@@ -75,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
             name = (TextView)findViewById(R.id.name);
             description = (TextView)findViewById(R.id.description);
             locations = (TextView)findViewById(R.id.locations);
+            header = (TextView)findViewById(R.id.header);
             pDialog = new ProgressDialog(MainActivity.this);
             pDialog.setMessage("Getting Data ...");
             pDialog.setIndeterminate(false);
@@ -94,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(JSONObject json) {
             pDialog.dismiss();
+            header.setText("HackThis 2020: August 7-15");
             try {
                 // Getting JSON Array from URL
                 events = json.getJSONArray("events");
@@ -113,12 +132,19 @@ public class MainActivity extends AppCompatActivity {
                     if (locs.equals("")) {
                         locs = "Unavailable";
                     }
-                    // Adding value HashMap key => value
+                    String date = event.getString("startTime");
+                    Date currentDate = new Date(parseLong(date));
+                    Calendar calendar = Calendar.getInstance();
+                    calendar.setTime(currentDate);
                     HashMap<String, String> map = new HashMap<String, String>();
-                    map.put("Name", "Event: " + name);
-                    map.put("Description", "Description: " + description);
-                    map.put("Locations", "Locations: " + locs);
-                    eventList.add(map);
+//                     calendar.get(Calendar.DAY_OF_WEEK)
+//                    System.out.println(calendar.get(Calendar.DAY_OF_WEEK));
+//                    if (calendar.get(Calendar.DAY_OF_WEEK) == dayOfWeek) {
+                        map.put("Name", name);
+                        map.put("Description", "Description: " + description);
+                        map.put("Locations", "Locations: " + locs);
+                        eventList.add(map);
+//                    }
                     listView = (ListView)findViewById(R.id.list);
                     SimpleAdapter adapter = new SimpleAdapter(MainActivity.this, eventList,
                             R.layout.event_display,
@@ -129,6 +155,10 @@ public class MainActivity extends AppCompatActivity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+        }
+
+        private void chooseDay(int day) {
+
         }
     }
 

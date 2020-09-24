@@ -7,12 +7,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/name"
-        android:textSize="14dp" />
+        android:textStyle="bold"
+        android:textSize="18dp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/description"
+        android:textStyle="italic"
         android:textSize="14dp"
         android:layout_below="@+id/name"/>
 
