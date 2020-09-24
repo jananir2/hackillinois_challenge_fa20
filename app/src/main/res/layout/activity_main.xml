@@ -5,85 +5,97 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     >
 
         <TextView
             android:id="@+id/header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:textStyle="bold|italic"/>
-        <LinearLayout
-            android:id="@+id/container2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:layout_below="@+id/header">
+            android:textSize="20sp"
+            android:textStyle="bold|italic" />
 
-                <Button
-                    android:id="@+id/seventh"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="7  F" />
+        <Button
+            android:id="@+id/seventh"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/_7_f"
+            android:layout_below="@+id/header"/>
 
-                <Button
-                    android:id="@+id/eighth"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="8 SA" />
+        <Button
+            android:id="@+id/eighth"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/_8_sa"
+            android:layout_below="@+id/header"
+            android:layout_toRightOf="@+id/seventh" />
 
-                <Button
-                    android:id="@+id/ninth"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="9 SU" />
-                <Button
-                    android:id="@+id/tenth"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="10 M" />
-                <Button
-                    android:id="@+id/eleventh"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="11TU" />
-                <Button
-                    android:id="@+id/twelfth"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="12 W" />
+        <Button
+            android:id="@+id/ninth"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/_9_su"
+            android:layout_below="@+id/header"
+            android:layout_toRightOf="@+id/eighth"/>
+        <Button
+            android:id="@+id/tenth"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/_10_m"
+            android:layout_below="@+id/header"
+            android:layout_toRightOf="@+id/ninth"/>
+        <Button
+            android:id="@+id/eleventh"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/_11tu"
+            android:layout_below="@+id/header"
+            android:layout_toRightOf="@+id/tenth"/>
+        <Button
+            android:id="@+id/twelfth"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/_12_w"
+            android:layout_below="@+id/header"
+            android:layout_toRightOf="@+id/eleventh"/>
 
-                <Button
-                    android:id="@+id/thirteenth"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="13TH" />
-                <Button
-                    android:id="@+id/fourteenth"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="14F" />
-                <Button
-                    android:id="@+id/fifteenth"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="15SA" />
-        </LinearLayout>
+        <Button
+            android:id="@+id/thirteenth"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/_13th"
+            android:layout_below="@+id/header"
+            android:layout_toRightOf="@+id/twelfth"/>
+        <Button
+            android:id="@+id/fourteenth"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/_14f"
+            android:layout_below="@+id/header"
+            android:layout_toRightOf="@+id/thirteenth"/>
+        <Button
+            android:id="@+id/fifteenth"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/_15sa"
+            android:layout_below="@+id/header"
+            android:layout_toRightOf="@+id/fourteenth"/>
 
         <ListView
             android:id="@+id/list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="80dp"
-            />
+            android:paddingTop="80dp">
+
+        </ListView>
 
 </RelativeLayout>

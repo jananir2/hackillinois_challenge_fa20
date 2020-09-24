@@ -3,4 +3,13 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="_9_su">9 SU</string>
+    <string name="_7_f">7\n F</string>
+    <string name="_10_m">10 M</string>
+    <string name="_11tu">11TU</string>
+    <string name="_14f">14F</string>
+    <string name="_13th">13TH</string>
+    <string name="_15sa">15SA</string>
+    <string name="_8_sa">8 SA</string>
+    <string name="_12_w">12 W</string>
 </resources>

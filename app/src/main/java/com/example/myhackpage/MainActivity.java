@@ -50,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         new JSONParse().execute();
-
         dayOfWeek = 5;
         eventList = new ArrayList<HashMap<String, String>>();
         seventh = (Button) findViewById(R.id.seventh);
@@ -61,25 +60,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        saturday = (Button) findViewById(R.id.saturday);
-//        saturday.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                dayOfWeek = 7;
-//                new JSONParse().execute();
-//            }
-//        });
-
-//        sunday = (Button) findViewById(R.id.sunday);
-//        sunday.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                dayOfWeek = 1;
-//                new JSONParse().execute();
-//            }
-//        });
-
-        listView = (ListView) findViewById(R.id.list);
+//        listView = (ListView) findViewById(R.id.list);
     }
 
     private class JSONParse extends AsyncTask<String, String, JSONObject> {
@@ -144,7 +125,6 @@ public class MainActivity extends AppCompatActivity {
                         map.put("Description", "Description: " + description);
                         map.put("Locations", "Locations: " + locs);
                         eventList.add(map);
-//                    }
                     listView = (ListView)findViewById(R.id.list);
                     SimpleAdapter adapter = new SimpleAdapter(MainActivity.this, eventList,
                             R.layout.event_display,
