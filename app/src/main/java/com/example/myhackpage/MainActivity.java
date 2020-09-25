@@ -150,7 +150,6 @@ public class MainActivity extends AppCompatActivity {
                 new JSONParse().execute();
             }
         });
-//        listView = (ListView) findViewById(R.id.list);
     }
 
     private class JSONParse extends AsyncTask<String, String, JSONObject> {
@@ -211,7 +210,7 @@ public class MainActivity extends AppCompatActivity {
                     Calendar cal = jdf.getCalendar();
                     cal.setTime(newDate);
                     HashMap<String, String> map = new HashMap<String, String>();
-                    if (cal.get(Calendar.DATE) == date) {
+                    if (cal.get(Calendar.DATE) == date || date == 0) {
                         map.put("Name", name);
                         map.put("Description", "Description: " + description);
                         map.put("Locations", "Locations: " + locs);
